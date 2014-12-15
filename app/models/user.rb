@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   #attr_accessible :email, :password
-  
+  has_and_belongs_to_many :writeboards
   attr_accessor :password
   before_save :encrypt_password
   before_create { generate_token(:auth_token) }

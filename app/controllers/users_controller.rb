@@ -12,9 +12,13 @@ class UsersController < ApplicationController
         render "new"
       end
     elsif params[:commit] == 'Signin'
-      user = User.authenticate(params[:user][:email], params[:user][:password])
-      if user
-        session[:user_id] = user.id
+      user = User.find_by_email(params[:user][:email])
+      if User.authenticate(params[:user][:email], params[:user][:password])
+        if params[:remember_me]
+          cookies.permanent[:auth_token] = user.auth_token
+        else
+          cookies[:auth_token] = user.auth_token
+        end
         redirect_to writeboards_index_path, :notice => "Logged in!"
       else
         flash.now.alert = "Invalid email or password"
