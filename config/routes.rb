@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'writeboards/new'
+
+  get 'writeboards/index'
+
   get 'users/new'
 
   get "log_out" => "users#destroy", :as => "log_out"

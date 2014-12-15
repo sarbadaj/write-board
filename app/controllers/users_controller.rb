@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if params[:commit] == 'Signup'
       @user = User.new(user_params)
       if @user.save
-        redirect_to root_url, :notice => "Signed up!"
+        redirect_to writeboards_index_path, :notice => "Signed up!"
       else
         render "new"
       end
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       user = User.authenticate(params[:user][:email], params[:user][:password])
       if user
         session[:user_id] = user.id
-        redirect_to root_url, :notice => "Logged in!"
+        redirect_to writeboards_index_path, :notice => "Logged in!"
       else
         flash.now.alert = "Invalid email or password"
         redirect_to root_url
