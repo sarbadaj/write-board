@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="navbar-header">
+      <div class="navbar-brand">Write Board</div>
+      <div class="navbar-brand">History</div>
+      <div class="navbar-brand">
+      <button type="button" class="btn btn-lg btn-default"><%= link_to "New Write Board",  writeboards_new_path, remote: true %></button>
+        </div>
+      <div class="navbar-brand">
+        <% if current_user %>
+          <%= current_user.email %>.
+          <%= link_to "Log out", log_out_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      Boards
+      <% @writeboards.each do |writeboard| %>
+        <p>
+          <strong>Title:</strong>
+          <%= writeboard.title%>
+        </p>
+      <% end %>
+    </div>
+    <div class="col-md-3 col-md-offset-3" id="new_write_board">
+    </div>
+  </div>
+</div>
