@@ -40,3 +40,7 @@ gem 'spring',        group: :development
 
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'pry-rails'
+
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer', '~> 0.10.2'
