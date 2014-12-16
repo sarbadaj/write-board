@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'writeboards/new'
 
   get 'writeboards/index'
+  get 'writeboards/show'
 
   get 'users/new'
 

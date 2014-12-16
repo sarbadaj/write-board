@@ -19,8 +19,8 @@
       Boards
       <% @writeboards.each do |writeboard| %>
         <p>
-          <strong>Title:</strong>
-          <%= writeboard.title%>
+          <strong></strong>
+          <%= link_to writeboard.title, writeboards_show_path(:id=>writeboard.id), remote: true %>
         </p>
       <% end %>
     </div>

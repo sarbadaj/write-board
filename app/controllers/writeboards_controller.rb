@@ -15,12 +15,16 @@ class WriteboardsController < ApplicationController
 
   def edit
     @user = User.find(params[:user_id])
-    @writeboard = @user.writeboards.find(params[id])  
+    @writeboard = @user.writeboards.find(params[:id])  
+  end
+
+  def show
+    @writeboard = Writeboard.find(params[:id])
   end
 
   def update
     @user = User.find(params[:user_id])
-    @writeboard = @user.writeboards.find(params[id])  
+    @writeboard = @user.writeboards.find(params[:id])  
     @writeboard.update_attributes(params[:user])
     respond_with @writeboard
   end
