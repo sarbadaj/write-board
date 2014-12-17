@@ -4,7 +4,7 @@
       <div class="navbar-brand">Write Board</div>
       <div class="navbar-brand">History</div>
       <div class="navbar-brand">
-      <button type="button" class="btn btn-lg btn-default"><%= link_to "New Write Board",  writeboards_new_path, remote: true %></button>
+      <button type="button" class="btn btn-lg btn-default"><%= link_to "New Write Board", new_user_writeboard_path(current_user.id), remote: true %></button>
         </div>
       <div class="navbar-brand">
         <% if current_user %>
@@ -20,7 +20,7 @@
       <% @writeboards.each do |writeboard| %>
         <p>
           <strong></strong>
-          <%= link_to writeboard.title, writeboards_show_path(:id=>writeboard.id), remote: true %>
+          <%= link_to writeboard.title, user_writeboard_path(:id=>writeboard.id), remote: true %>
         </p>
       <% end %>
     </div>

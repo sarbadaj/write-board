@@ -10,7 +10,7 @@ class WriteboardsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @writeboard = @user.writeboards.create(writeboard_params)
-    redirect_to writeboards_index_path
+    redirect_to user_writeboards_path(:user_id)
   end
 
   def edit

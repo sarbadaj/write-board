@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
   get 'password_resets/new'
 
-  get 'writeboards/new'
-
-  get 'writeboards/index'
-  get 'writeboards/show'
-
   get 'users/new'
 
   get "log_out" => "users#destroy", :as => "log_out"
